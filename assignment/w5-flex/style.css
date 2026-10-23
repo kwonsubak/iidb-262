@@ -1,0 +1,201 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  text-align: center;
+}
+
+body {
+  padding: 24px;
+  margin: 0;
+  background: #333;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  > * + * {
+    margin-top: 56px;
+  }
+}
+
+#gnb {
+  background: #ddd;
+  padding: 16px;
+  .section {
+    color: #ddd;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-inline: 10px;
+  }
+  .logo {
+    background: #555;
+    padding-inline: 10px;
+    padding-block: 5px;
+  }
+  .section-1 {
+    display: flex;
+    justify-content: flex-end;
+    padding-inline: 10px;
+    padding-block: 5px;
+    background: #555;
+  }
+}
+
+#searchbar {
+  background: #ddd;
+  padding-inline: 16px;
+  padding-block: 16px;
+  margin-inline: auto;
+  .section {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-inline: auto;
+    width: 100%;
+    .input {
+      background: #555;
+      width: 100%;
+    }
+    .search {
+      color: #ddd;
+      padding-inline: 10px;
+      padding-block: 5px;
+      cursor: pointer;
+      background: #333;
+      width: fit-content;
+      text-wrap: nowrap;
+    }
+  }
+}
+
+#profile {
+  background: #ddd;
+  padding: 16px;
+  margin-inline: auto;
+  .section {
+    padding-block: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .image {
+    background: #555;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .text {
+    padding-inline: 30px;
+  }
+}
+
+#detail {
+  padding: 16px;
+  background: #ddd;
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    .btn {
+      cursor: pointer;
+      padding-block: 5px;
+      padding-inline: 10px;
+      width: fit-content;
+      color: #ddd;
+      background: #555;
+    }
+    .text {
+      text-align: justify;
+    }
+  }
+}
+
+#filterchip {
+  background: #ddd;
+  padding: 16px;
+}
+
+#tabmenu {
+  background: #ddd;
+  padding: 16px;
+  .section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .tab {
+      cursor: pointer;
+      padding-block: 5px;
+      padding-inline: 10px;
+      height: 70px;
+      width: 100%;
+      color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .tab-1 {
+      flex: 1;
+      background: #555;
+    }
+    .tab-2 {
+      flex: 1;
+      background: #333;
+    }
+    .tab-3 {
+      flex: 1;
+      background: #888;
+    }
+  }
+}
+
+#toolbar {
+  background: #ddd;
+  padding: 16px;
+  .section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    .bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding-block: 5px;
+      padding-inline: 10px;
+      height: 70px;
+      width: 100%;
+      color: #ddd;
+    }
+    .bar-1 {
+      flex: 1;
+      background: #555;
+    }
+    .bar-2 {
+      flex: 1;
+      background: #555;
+    }
+    .bar-3 {
+      flex: 1;
+      background: #555;
+    }
+    .bar-4 {
+      flex: 1;
+      background: #555;
+    }
+  }
+}
