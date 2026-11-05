@@ -35,31 +35,14 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-a:focus-visible {
-  outline: 3px solid var(--black);
-  outline-offset: 4px;
-}
-
 /* ========================================
    전체 골조: Grid + Pile 패턴
-
    같은 셀에 계단 배경과 본문을 겹칩니다.
-   전체 너비에 고정 px 또는 max-width 없음.
 ======================================== */
 
 .poster {
   position: relative;
-  isolation: isolate;
-
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: minmax(145.8vw, auto);
-
-  width: 100%;
   background: var(--mint);
 }
 
@@ -67,10 +50,6 @@ a:focus-visible {
 .headline {
   grid-area: 1 / 1 / 2 / 2;
 }
-
-/* ========================================
-   상단 로고: Flexbox
-======================================== */
 
 .brand {
   position: absolute;
@@ -93,7 +72,6 @@ a:focus-visible {
 }
 
 .brand-name {
-  position: relative;
   font-size: 4.3vw;
   font-weight: 900;
   line-height: 1;
@@ -101,7 +79,6 @@ a:focus-visible {
 }
 
 .brand-name2 {
-  position: relative;
   font-size: 4.3vw;
   font-weight: 900;
   line-height: 1;
@@ -109,21 +86,12 @@ a:focus-visible {
   transform: translateY(1vw);
 }
 
-/* ========================================
-   계단 배경: 본문과 동일한 Grid 셀에 겹침
-======================================== */
-
-.stairs {
-  position: relative;
-  z-index: 0;
-  align-self: stretch;
-  pointer-events: none;
-}
-
+/* pile패턴 적용 */
 .stairs span {
   position: absolute;
-  display: block;
-  background: var(--white);
+  /* absoulte는 inline을 block으로 만듦 */
+  /* display: block; */
+  background: white;
 }
 
 .stairs span:nth-child(1) {
@@ -147,24 +115,15 @@ a:focus-visible {
   height: 40.3vw;
 }
 
-/* ========================================
-   상단 영문: Position + 회전
-======================================== */
-
 .inf {
   position: absolute;
-  z-index: 3;
-  inset: 0;
-  pointer-events: none;
-
-  font-family: var(--english);
   font-weight: 700;
   line-height: 1;
 }
 
 .inf span {
   position: absolute;
-  display: block;
+
   white-space: nowrap;
 
   transform: rotate(90deg);
@@ -195,13 +154,8 @@ a:focus-visible {
 ======================================== */
 
 .headline {
-  position: relative;
-  z-index: 1;
-  align-self: start;
-
   display: grid;
   grid-template-columns: 27.73% 57.53% 14.74%;
-  grid-template-rows: auto auto;
 
   width: 91.6%;
   margin-top: 57.2vw;
@@ -213,35 +167,16 @@ a:focus-visible {
   grid-column: 1 / span 2;
   grid-row: 1 / 2;
 
-  position: relative;
   z-index: 2;
 
   min-width: 0;
   min-height: 34.9vw;
   padding: 4.8vw 0 0.94vw 7vw;
-  background: var(--white);
-}
-
-.intro::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-
-  left: 6vw;
-  bottom: -5.5vw;
-  width: 22vw;
-  height: 6vw;
-
-  background: var(--white);
-}
-
-h1 {
-  font-weight: 400;
+  background: white;
 }
 
 /*
   clamp(최솟값, 유동값, 최댓값)
-  참고 화면 크기에서는 vw 기준 크기를 유지합니다.
 */
 .subtitle {
   display: block;
@@ -263,7 +198,6 @@ h1 {
   white-space: wrap;
 }
 
-/* 날짜: Flexbox */
 .dates {
   display: flex;
   align-items: baseline;
@@ -276,11 +210,9 @@ h1 {
   font-weight: 750;
   line-height: 1;
   letter-spacing: -0.6vw;
-  white-space: nowrap;
 }
 
 .date-end {
-  display: flex;
   align-items: baseline;
   gap: 1.7vw;
 }
@@ -305,14 +237,10 @@ h1 {
   margin-top: -3.9vw;
   padding: 7.4vw 2.8vw 3.5vw 3.4vw;
 
-  background: var(--white);
+  background: white;
   font-size: 1.9vw;
   line-height: 1.4;
   letter-spacing: -0.07vw;
-}
-
-.details > * {
-  min-width: 0;
 }
 
 .topic {
@@ -336,11 +264,6 @@ h1 {
   grid-row: 2 / 3;
 }
 
-.utility {
-  grid-column: 1 / span 2;
-  grid-row: 3 / 4;
-}
-
 h2 {
   margin-bottom: 1vw;
   padding-bottom: 0.25vw;
@@ -356,7 +279,6 @@ h2 {
   margin-bottom: 0.7vw;
 }
 
-/* 주제 내부: Flexbox */
 .topic-content {
   display: flex;
   align-items: center;
@@ -368,7 +290,7 @@ h2 {
   flex: 0 0 auto;
   padding: 0.35vw 0.45vw;
 
-  color: var(--white);
+  color: white;
   background: var(--black);
 
   font-size: 2.45vw;
@@ -391,16 +313,13 @@ h2 {
   overflow-wrap: anywhere;
 }
 
-/* ========================================
-   시상내역
-======================================== */
-
 .awards h2 {
   margin-bottom: 0.5vw;
 }
 
 table {
   width: 100%;
+  /* 인접한 셀 테두리 합침 */
   border-collapse: collapse;
   font-size: 1.8vw;
   line-height: 1.45;
@@ -437,9 +356,7 @@ td:last-child {
   text-align: right;
 }
 
-/* ========================================
-   하단 영문, QR, 연락처
-======================================== */
+/* 캡션, 연락처 */
 .caption {
   position: absolute;
   top: 11.7vw;
@@ -450,6 +367,11 @@ td:last-child {
   align-items: center;
 
   gap: 3vw;
+}
+
+.utility {
+  grid-column: 1 / span 2;
+  grid-row: 3 / 4;
 }
 
 .english {
@@ -464,11 +386,6 @@ td:last-child {
   font-weight: 300;
   line-height: 1.28;
   letter-spacing: 0.65vw;
-}
-
-.english span {
-  display: block;
-  white-space: nowrap;
 }
 
 .qr {
@@ -529,13 +446,6 @@ td:last-child {
   letter-spacing: -0.04vw;
 }
 
-/* ========================================
-   태블릿: 768px 이하
-   주요 영역 3열 → 1열
-   상세 안내 2열 → 1열
-   날짜 가로 → 세로
-======================================== */
-
 @media (max-width: 768px) {
   .poster {
     grid-template-rows: minmax(480vw, auto);
@@ -556,15 +466,10 @@ td:last-child {
     letter-spacing: -0.7vw;
   }
 
-  .brand-name::after {
-    top: -2vw;
-    font-size: 2.7vw;
-  }
-
   .stairs span:nth-child(1) {
     top: 28.5vw;
     left: 20.4vw;
-    width: 38vw; /* 세 번째 블록과 겹쳐 초록색 틈 방지 */
+    width: 38vw;
     height: 64vw;
   }
 
@@ -596,6 +501,7 @@ td:last-child {
     letter-spacing: -0.3vw;
   }
 
+  /* 헤드라인 */
   .headline {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto;
@@ -605,7 +511,7 @@ td:last-child {
     margin-left: 5.9%;
     margin-bottom: 7.5vw;
 
-    background: var(--white);
+    background: white;
   }
 
   .intro {
@@ -614,10 +520,6 @@ td:last-child {
 
     min-height: 0;
     padding: 5.1vw 3.3vw 5.8vw;
-  }
-
-  .intro::after {
-    display: none;
   }
 
   .subtitle {
@@ -833,7 +735,7 @@ td:last-child {
 
   .stairs span:nth-child(1) {
     top: 42vw;
-    left: 11.5vw;
+    left: 9vw;
     width: 51vw;
     height: 14vw;
   }
@@ -990,6 +892,7 @@ td:last-child {
     text-align: right;
   }
 
+  /* 캡션 */
   .utility {
     grid-template-columns: 27vw minmax(0, 1fr);
     grid-template-rows: auto auto;
@@ -1035,16 +938,5 @@ td:last-child {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-
-    white-space: normal;
-  }
-
-  .contact-label {
-    white-space: nowrap;
-  }
-
-  .contacts a {
-    font-size: 4.1vw;
-    white-space: nowrap;
   }
 }
