@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iidw-w4-assignment-template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- <div id="profile">
+      <div class="section section-1">
+        <div class="picture"></div>
+        <div>
+          <div class="name">홍길동</div>
+          <div class="id"><a href="">@johndoe</a></div>
+          <div class="wrap">
+            <div class="following">
+              <span class="label">팔로잉</span>
+              <a href="">40</a>
+            </div>
+            <div class="follower">
+              <span class="label">팔로워</span>
+              <a href="">30</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="desc section section-2">
+        이 편지는 영국에서 최초로 시작되어 일년에 한바퀴를 돌면서 받는 사람에게
+        행운을 주었고 지금은 당신에게로 옮겨진 이 편지는 4일 안에 당신 곁을
+        떠나야 합니다. 이 편지를 포함해서 7통을 행운이 필요한 사람에게 보내
+        주셔야 합니다. 복사를 해도 좋습니다. 혹 미신이라 하실지 모르지만
+        사실입니다.
+      </div>
+      <div class="section section-3">
+        <div class="link">
+          <span class="label">
+            <span class="material-symbols-outlined">link_2</span>
+          </span>
+          <a href="">killdong.kr </a>
+        </div>
+        <div class="joined">
+          <span class="label">
+            <span class="material-symbols-outlined">calendar_month</span>
+            <span>가입일</span>
+          </span>
+          <span>2011년 11월</span>
+        </div>
+      </div>
+      <div class="section section-5">
+        <div class="btn">팔로우</div>
+        <div class="btn alt">메세지</div>
+      </div>
+    </div> -->
+
+    <div id="profile-card">
+      <span class="list">1. 유저 프로필 카드</span>
+      <div class="section">
+        <div class="section section-1">
+          <span class="basicinf">기본 정보</span>
+          <div class="picture"></div>
+          <span class="btn">바꾸기</span>
+        </div>
+        <div class="section section-2">
+          <div class="name-item">
+            <div class="first-name">
+              <span class="label">성</span>
+              <input type="text" />
+            </div>
+            <div class="last-name">
+              <span class="label">이름</span>
+              <input type="text" />
+            </div>
+          </div>
+          <div class="tag">
+            <span class="label">머리말</span>
+            <input type="text" />
+          </div>
+          <div class="company">
+            <span class="label">회사</span>
+            <input type="text" />
+          </div>
+          <div class="location">
+            <span class="label">위치</span>
+            <input type="text" />
+          </div>
+          <div class="city">
+            <span class="label">도시</span>
+            <input type="text" />
+          </div>
+          <div class="url">
+            <span class="label">웹사이트 URL</span>
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="global-nav">
+      <span class="list">2. 글로벌 네비게이션 바</span>
+      <div class="section">
+        <nav class="top-menu">
+          <button>즐겨찾기</button>
+          <button>입점신청 ▼</button>
+          <div class="user-menu">
+            <button>사용자님</button>
+            <button>로그아웃</button>
+            <button>고객센터</button>
+            <button>판매자 가입</button>
+          </div>
+        </nav>
+        <div class="main-nav">
+          <div class="category">카테고리</div>
+          <div class="logo">coupang</div>
+          <div class="search">
+            <button>전체</button>
+            <span>▼</span>
+            <p>찾고 싶은 상품을 검색해보세요!</p>
+            <div class="search-icon"></div>
+          </div>
+          <div class="quick-menu">
+            <div>
+              <div class="icon"></div>
+              <p>마이쿠팡</p>
+            </div>
+            <div>
+              <div class="icon"></div>
+              <p>장바구니</p>
+            </div>
+          </div>
+        </div>
+        <nav class="category-menu">
+          <ul>
+            <li>쿠팡플레이</li>
+            <li>로켓배송</li>
+            <li>로켓프레시</li>
+            <li>다시 구매</li>
+            <li>쿠팡비즈</li>
+            <li>로켓직구</li>
+            <li>골드박스</li>
+            <li>이달의신상</li>
+            <li>입점신청</li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div id="blog">
+      <span class="list">3. 블로그 아티클 리스트</span>
+      <nav class="category">
+        <span>■ 여행 · 맛집</span>
+        <span>■ 리뷰 · 스타일</span>
+        <span>■ 가족 · 연애</span>
+        <span>■ 직장 · 자기계발</span>
+        <span>■ 시사 · 지식</span>
+        <span class="profile"></span>
+      </nav>
+      <div class="popular">
+        <div class="popular-card">
+          <div class="popular-image"></div>
+          <h2>뭐먹을까 고민될 때 육회한우로 모듬전가세요!</h2>
+          <p>#연산동맛집#모듬회#부산맛집추천 아직맛집힌당 조국 대통령전기...</p>
+          <div class="info">
+            <span>■ 10</span>
+            <span>■ 6</span>
+            <span>5일 전</span>
+          </div>
+        </div>
+        <div class="popular-card">
+          <div class="popular-image"></div>
+          <h2>구파발역 카페 아이가가는 롯데몰 근처 | 스콘 맛집 추천</h2>
+          <p>
+            구파발역 롯데몰에 갔다가 간식 추천 카페가 보이는 카페를 발견했어요!
+          </p>
+          <div class="info">
+            <span>■ 10</span>
+            <span>■ 5</span>
+            <span>6일 전</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 게시글 목록 -->
+      <section class="post-list">
+        <div class="post">
+          <div class="post-text">
+            <div class="author">
+              <span class="author-icon"></span>
+              <span>작성자1</span>
+            </div>
+
+            <h2>바람이 머물고싶어 지나가는 곳, 한담동항의 기억을 향한</h2>
+
+            <p>
+              바람이 머물고 싶어 시가 되는 곳, 한담동항의 가을 향한밤이 코스모스
+              줄기들 흔들 때 길을 걷다 보면 어느새 저녁이 찾아온다. 지천을 걷게
+              이어지는...
+            </p>
+
+            <div class="info">
+              <span>■ 95</span>
+              <span>■ 13</span>
+              <span>1일 전</span>
+            </div>
+          </div>
+
+          <div class="post-image"></div>
+        </div>
+
+        <div class="post">
+          <div class="post-text">
+            <div class="author">
+              <span class="author-icon"></span>
+              <span>작성자2</span>
+            </div>
+
+            <h2>오마카세는 다가있는 오픈런 필수 순서 맛집</h2>
+
+            <p>
+              지난달 말에 일요일 오전에 완성품을 다녀왔는데 집사람이 제일
+              좋아하는 곳. 노팅에는 부부가 한곳을 좋아하는 편인데 서로 다른 별로
+              좋아하...
+            </p>
+
+            <div class="info">
+              <span>■ 47</span>
+              <span>■ 50</span>
+              <span>1일 전</span>
+            </div>
+          </div>
+
+          <div class="post-image"></div>
+        </div>
+
+        <div class="post">
+          <div class="post-text">
+            <div class="author">
+              <span class="author-icon"></span>
+              <span>작성자3</span>
+            </div>
+
+            <h2>전남향:매꼬뭇 [26년 9월 23일]</h2>
+
+            <p>
+              좋은 곳으로 물결 따라 걷는 전라도 가을여행 함께여행, 꽃무릇의 붉은
+              유혹, 함평 꽃무릇에 황홀한 색의 올 가을이 깊어지는 9월, 전라도의
+              산과 들이 붉게 물들기...
+            </p>
+
+            <div class="info">
+              <span>■ 35</span>
+              <span>■ 32</span>
+              <span>5일 전</span>
+            </div>
+          </div>
+
+          <div class="post-image"></div>
+        </div>
+      </section>
+    </div>
+
+    <div id="youtube-thumbnail">
+      <span class="list">4. 유튜브 비디오 썸네일</span>
+      <div class="video">
+        <div class="screen"></div>
+        <div class="inf">
+          <div class="profile-img"></div>
+          <div clas="inf inf-1">
+            <span class="title"
+              >쇼미더머니 우승자가 힙합과에 간다면? (feat.김하온) [정화예대
+              힙합과]｜전과자 ep.130 [EN/IN]</span
+            >
+            <div class="inf inf-2">
+              <nav class="profile">oob STUDIO</nav>
+              ▷ 358만　7일 전
+            </div>
+          </div>
+          <div class="btn">⋮</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="price-card">
+      <span class="list">5. 가격표 카드</span>
+      <div class="inf">
+        <div class="inf inf-1">
+          <span class="plan">Go</span>
+          이용 범위 확대
+        </div>
+        <div class="inf inf-2">
+          <p>₩13,000</p>
+          <span class="day">/월</span>
+        </div>
+        <div class="btn">Go 사용하기</div>
+        ◇ Free 플랜의 모든 기능 포함
+        <div>
+          <div class="inf inf-3">
+            <span>▶ 도구를 사용한 메시지 더 많이 이용</span>
+            <span>▶ 더 높은 응답 한도</span>
+            <span>▶ 더 높은 이미지</span>
+            <span>▶ 생성 한도 음성 대화 더 많이 이용 더욱 긴 메모리</span>
+          </div>
+          <span class="inf inf-4">
+            이 플랜에는 광고가 포함될 수 있습니다.<span class="inf inf-4"
+              >무제한 텍스트 채팅에는 악용방지를 위한 제한이 적용됩니다.</span
+            >
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div id="login-form">
+      <span class="list">6. 로그인 폼</span>
+      <div class="section">
+        <div class="section section-1">
+          <div>
+            <span class="id">아이디 또는 전화번호</span>
+            <button>아이디 또는 전화번호를 입력하세요.</button>
+            <span class="password">비밀번호</span>
+            <button>비밀번호를 입력하세요.</button>
+          </div>
+          <div class="option">
+            <div>
+              <button>로그인 상태 유지</button>
+              <button>IP 보안</button>
+            </div>
+            <div class="login">
+              <button>패스키 로그인</button>
+              <button>로그인</button>
+            </div>
+            <nav>QR 코드 로그인｜ 일회용 번호 로그인</nav>
+          </div>
+        </div>
+        <nav>아이디 찾기｜ 비밀번호 찾기｜ 회원가입</nav>
+      </div>
+    </div>
+
+    <div id="comment-thread">
+      <span class="list">7. 댓글 스레드</span>
+      <div class="section">
+        <div class="author">
+          <div class="profile-img"></div>
+          <span class="name">작성자</span>
+          <span class="day">1일</span>
+          <div class="btn">⋯</div>
+        </div>
+        <div class="div">
+          <div class="text">생각지도 못한 대결</div>
+          <div class="picture"></div>
+        </div>
+        <div class="inf">
+          <button>3.5만</button>
+          <button>683</button>
+          <button>1.4천</button>
+          <button>2.1만</button>
+        </div>
+        <div class="input">
+          작성자님에게 답글 남기기...
+          <button>버튼1</button>
+          <button>버튼2</button>
+          <button>버튼3</button>
+        </div>
+        <div>
+          <nav class="comment comment-1">
+            사용자1 13시간
+            <div class="btn">⋯</div>
+            <p>하 이거 보니까 너무 힐링된당</p>
+            <div class="inf">
+              <button>버튼1</button>
+              <button>버튼2</button>
+              <button>버튼3</button>
+            </div>
+          </nav>
+        </div>
+        <div>
+          <nav class="comment comment-2">
+            사용자2 1일
+            <div class="btn">⋯</div>
+            <p>아즈씨들 연기 너무못함.</p>
+            <div class="inf">
+              <button>버튼1</button>
+              <button>버튼2</button>
+              <button>버튼3</button>
+            </div>
+          </nav>
+          <div>
+            <nav class="comment comment-3">
+              사용자3 1일
+              <div class="btn">⋯</div>
+              <p>나도 이 말 하고 싶었어ㅋㅋ 다들 I인가봐ㅋㅋ</p>
+              <div class="inf">
+                <button>버튼1</button>
+                <button>버튼2</button>
+                <button>버튼3</button>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pagination">
+      <span class="list">8.페이지네이션</span>
+      <nav class="pages">
+        <a href="">«</a>
+        <a href="">‹</a>
+        <div class="now-page"><a href="">11</a></div>
+        <a href="">12</a>
+        <a href="">13</a>
+        <a href="">14</a>
+        <a href="">15</a>
+        <a href="">16</a>
+        <a href="">17</a>
+        <a href="">18</a>
+        <a href="">19</a>
+        <a href="">20</a>
+        <a href="">›</a>
+        <a href="">»</a>
+      </nav>
+    </div>
+
+    <div id="footer">
+      <span class="list">9. 푸터</span>
+      <div class="section">
+        <div class="section-1">
+          <div class="section section-2">
+            <div class="box">
+              개인 및 소규모 기업
+              <ul>
+                <li>크리에이티브 앱</li>
+                <li>포토샵</li>
+                <li>디자인 및 일러스트레이션</li>
+                <li>영상 및 애니메이션</li>
+                <li>PDF</li>
+                <li>3D</li>
+              </ul>
+            </div>
+            <div class="box">
+              중견 및 대기업
+              <ul>
+                <li>대규모 기업</li>
+                <li>콘텐츠 공급망</li>
+                <li>통합 고객 경험</li>
+                <li>크리에이티브 앱</li>
+                <li>제품 모두 보기</li>
+              </ul>
+            </div>
+            <div class="box">
+              조직
+              <ul>
+                <li>교육 기관</li>
+                <li>비영리 단체</li>
+                <li>공공 기관</li>
+              </ul>
+            </div>
+            <div class="box">
+              지원
+              <ul>
+                <li>도움말 센터</li>
+                <li>다운로드 및 설치</li>
+                <li>Adobe 커뮤니티</li>
+                <li>Adobe 학습</li>
+              </ul>
+            </div>
+            <div class="box">
+              Adobe
+              <ul>
+                <li>제품 및 도구</li>
+                <li>정보</li>
+                <li>채용 정보</li>
+                <li>이벤트</li>
+                <li>뉴스룸</li>
+                <li>기업의 사회적 책임</li>
+                <li>IR</li>
+              </ul>
+            </div>
+          </div>
+          <div class="section section-3">
+            주요 제품
+            <nav>Acrobat Reader</nav>
+            <nav>Firefly</nav>
+            <nav>Adobe Express</nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="notification-toast">
+      <span class="list">10. 알림 토스트</span>
+      <div class="noti">
+        온라인 강의를 시청하기 위해 재로그인이 필요합니다.
+        <span class="btn-1">×</span>
+      </div>
+      <span class="btn-2">확인</span>
+    </div>
+  </body>
+</html>

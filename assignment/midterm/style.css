@@ -1,0 +1,1050 @@
+/* ========================================
+   공통 설정
+======================================== */
+
+:root {
+  --mint: #19edb0;
+  --white: #fff;
+  --black: #000;
+
+  --korean: "Pretendard", sans-serif;
+  --english: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--black);
+  background: var(--mint);
+  font-family: var(--korean);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--black);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   전체 골조: Grid + Pile 패턴
+
+   같은 셀에 계단 배경과 본문을 겹칩니다.
+   전체 너비에 고정 px 또는 max-width 없음.
+======================================== */
+
+.poster {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(145.8vw, auto);
+
+  width: 100%;
+  background: var(--mint);
+}
+
+.stairs,
+.headline {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+/* ========================================
+   상단 로고: Flexbox
+======================================== */
+
+.brand {
+  position: absolute;
+  z-index: 3;
+  top: 6.6vw;
+  left: 5.1vw;
+
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 0.2vw;
+
+  white-space: nowrap;
+}
+
+.brand-slogan {
+  font-size: 1.55vw;
+  font-weight: 800;
+  letter-spacing: -0.1vw;
+}
+
+.brand-name {
+  position: relative;
+  font-size: 4.3vw;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.6vw;
+}
+
+.brand-name2 {
+  position: relative;
+  font-size: 4.3vw;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.6vw;
+  transform: translateY(1vw);
+}
+
+/* ========================================
+   계단 배경: 본문과 동일한 Grid 셀에 겹침
+======================================== */
+
+.stairs {
+  position: relative;
+  z-index: 0;
+  align-self: stretch;
+  pointer-events: none;
+}
+
+.stairs span {
+  position: absolute;
+  display: block;
+  background: var(--white);
+}
+
+.stairs span:nth-child(1) {
+  top: 27vw;
+  left: 18.9vw;
+  width: 25.2vw;
+  height: 36vw;
+}
+
+.stairs span:nth-child(2) {
+  top: 16.9vw;
+  left: 36.3vw;
+  width: 27vw;
+  height: 31.1vw;
+}
+
+.stairs span:nth-child(3) {
+  top: 7.7vw;
+  left: 57.8vw;
+  width: 24.5vw;
+  height: 40.3vw;
+}
+
+/* ========================================
+   상단 영문: Position + 회전
+======================================== */
+
+.inf {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+
+  font-family: var(--english);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.inf span {
+  position: absolute;
+  display: block;
+  white-space: nowrap;
+
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.year {
+  top: 12.4vw;
+  left: 77.4vw;
+  font-size: 13vw;
+  letter-spacing: -0.65vw;
+}
+
+.city {
+  top: 7.7vw;
+  left: 98vw;
+  font-size: 13.5vw;
+  letter-spacing: 1.15vw;
+}
+
+/* ========================================
+   주요 영역: 명시적인 2차원 Grid
+
+   제목: 1~2열을 차지
+   상세: 2~3열을 차지
+
+   기존 비대칭 위치와 너비 유지
+======================================== */
+
+.headline {
+  position: relative;
+  z-index: 1;
+  align-self: start;
+
+  display: grid;
+  grid-template-columns: 27.73% 57.53% 14.74%;
+  grid-template-rows: auto auto;
+
+  width: 91.6%;
+  margin-top: 57.2vw;
+  margin-left: 4.3%;
+  margin-bottom: 6.2vw;
+}
+
+.intro {
+  grid-column: 1 / span 2;
+  grid-row: 1 / 2;
+
+  position: relative;
+  z-index: 2;
+
+  min-width: 0;
+  min-height: 34.9vw;
+  padding: 4.8vw 0 0.94vw 7vw;
+  background: var(--white);
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  left: 6vw;
+  bottom: -5.5vw;
+  width: 22vw;
+  height: 6vw;
+
+  background: var(--white);
+}
+
+h1 {
+  font-weight: 400;
+}
+
+/*
+  clamp(최솟값, 유동값, 최댓값)
+  참고 화면 크기에서는 vw 기준 크기를 유지합니다.
+*/
+.subtitle {
+  display: block;
+  font-size: clamp(1rem, 6.4vw, 20rem);
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: -0.35vw;
+  white-space: nowrap;
+}
+
+.title {
+  display: block;
+  margin-top: 0.7vw;
+
+  font-size: clamp(1rem, 7.2vw, 22rem);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -0.35vw;
+  white-space: wrap;
+}
+
+/* 날짜: Flexbox */
+.dates {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 1.7vw;
+
+  margin-top: 0.7vw;
+  font-family: var(--english);
+  font-size: 11.8vw;
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.6vw;
+  white-space: nowrap;
+}
+
+.date-end {
+  display: flex;
+  align-items: baseline;
+  gap: 1.7vw;
+}
+
+/* ========================================
+   상세 안내: 2열 × 3행 Grid
+======================================== */
+
+.details {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto auto;
+  gap: 3.4vw 4.3vw;
+
+  min-width: 0;
+  min-height: 51.4vw;
+  margin-top: -3.9vw;
+  padding: 7.4vw 2.8vw 3.5vw 3.4vw;
+
+  background: var(--white);
+  font-size: 1.9vw;
+  line-height: 1.4;
+  letter-spacing: -0.07vw;
+}
+
+.details > * {
+  min-width: 0;
+}
+
+.topic {
+  grid-column: 1 / span 2;
+  grid-row: 1 / 2;
+}
+
+.entry-info {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: start;
+  gap: 3.1vw;
+}
+
+.awards {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.utility {
+  grid-column: 1 / span 2;
+  grid-row: 3 / 4;
+}
+
+h2 {
+  margin-bottom: 1vw;
+  padding-bottom: 0.25vw;
+  border-bottom: 0.2vw solid;
+
+  font-size: 2.4vw;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.08vw;
+}
+
+.topic h2 {
+  margin-bottom: 0.7vw;
+}
+
+/* 주제 내부: Flexbox */
+.topic-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.4vw;
+}
+
+.motto {
+  flex: 0 0 auto;
+  padding: 0.35vw 0.45vw;
+
+  color: var(--white);
+  background: var(--black);
+
+  font-size: 2.45vw;
+  font-weight: 750;
+  line-height: 1.4;
+  letter-spacing: -0.13vw;
+  white-space: nowrap;
+}
+
+.theme-description {
+  font-size: 1.55vw;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.09vw;
+}
+
+.submission-link {
+  font-size: 1.7vw;
+  letter-spacing: -0.09vw;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   시상내역
+======================================== */
+
+.awards h2 {
+  margin-bottom: 0.5vw;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.8vw;
+  line-height: 1.45;
+}
+
+tbody tr {
+  border-bottom: 0.11vw solid #777;
+}
+
+tbody tr:last-child {
+  border-bottom: 0;
+}
+
+th,
+td {
+  padding: 0.46vw 0;
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+th {
+  width: 34%;
+  font-weight: 600;
+  letter-spacing: 0.32vw;
+}
+
+td:nth-child(2) {
+  width: 30%;
+  text-align: center;
+}
+
+td:last-child {
+  text-align: right;
+}
+
+/* ========================================
+   하단 영문, QR, 연락처
+======================================== */
+.caption {
+  position: absolute;
+  top: 11.7vw;
+  left: -12.9vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 3vw;
+}
+
+.english {
+  position: absolute;
+  top: 11.7vw;
+  left: -12vw;
+  height: 28vw;
+
+  writing-mode: vertical-rl;
+  font-family: var(--english);
+  font-size: 2.5vw;
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: 0.65vw;
+}
+
+.english span {
+  display: block;
+  white-space: nowrap;
+}
+
+.qr {
+  position: absolute;
+  bottom: 0.4vw;
+  left: -10.5vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.7vw;
+
+  width: 8.5vw;
+}
+
+.qr-caption {
+  font-size: 1.1vw;
+  font-weight: 750;
+  letter-spacing: -0.04vw;
+  white-space: nowrap;
+}
+
+.qr img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  image-rendering: pixelated;
+}
+
+.contacts {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1vw;
+
+  font-style: normal;
+  font-size: 1.8vw;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.contacts p {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 1.7vw;
+}
+
+.contact-label {
+  font-weight: 650;
+}
+
+.contacts a {
+  font-family: var(--english);
+  font-size: 1.85vw;
+  letter-spacing: -0.04vw;
+}
+
+/* ========================================
+   태블릿: 768px 이하
+   주요 영역 3열 → 1열
+   상세 안내 2열 → 1열
+   날짜 가로 → 세로
+======================================== */
+
+@media (max-width: 768px) {
+  .poster {
+    grid-template-rows: minmax(480vw, auto);
+  }
+
+  .brand {
+    top: 7.6vw;
+    left: 7.3vw;
+  }
+
+  .brand-slogan {
+    font-size: 2.1vw;
+    letter-spacing: -0.13vw;
+  }
+
+  .brand-name {
+    font-size: 5.6vw;
+    letter-spacing: -0.7vw;
+  }
+
+  .brand-name::after {
+    top: -2vw;
+    font-size: 2.7vw;
+  }
+
+  .stairs span:nth-child(1) {
+    top: 28.5vw;
+    left: 20.4vw;
+    width: 38vw; /* 세 번째 블록과 겹쳐 초록색 틈 방지 */
+    height: 64vw;
+  }
+
+  .stairs span:nth-child(2) {
+    top: 17.2vw;
+    left: 37.1vw;
+    width: 40vw;
+    height: 64vw;
+  }
+
+  .stairs span:nth-child(3) {
+    top: 7.5vw;
+    left: 57.8vw;
+    width: 36.8vw;
+    height: 84vw;
+  }
+
+  .year {
+    top: 10.3vw;
+    left: 79.2vw;
+    font-size: 16.5vw;
+    letter-spacing: -0.6vw;
+  }
+
+  .city {
+    top: 10.3vw;
+    left: 93.6vw;
+    font-size: 15.3vw;
+    letter-spacing: -0.3vw;
+  }
+
+  .headline {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+
+    width: 88.7%;
+    margin-top: 90.9vw;
+    margin-left: 5.9%;
+    margin-bottom: 7.5vw;
+
+    background: var(--white);
+  }
+
+  .intro {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    min-height: 0;
+    padding: 5.1vw 3.3vw 5.8vw;
+  }
+
+  .intro::after {
+    display: none;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 12.9vw, 10rem);
+    line-height: 1.13;
+    letter-spacing: -0.55vw;
+    white-space: normal;
+  }
+
+  .subtitle-last {
+    display: block;
+  }
+
+  .title {
+    margin-top: 4.7vw;
+    font-size: clamp(1rem, 13.8vw, 11rem);
+    line-height: 1.1;
+    letter-spacing: -0.7vw;
+  }
+
+  .dates {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4vw;
+
+    margin-top: 3.5vw;
+    font-size: 20.5vw;
+    line-height: 1.1;
+    letter-spacing: -1.15vw;
+  }
+
+  .date-end {
+    align-self: flex-end;
+    gap: 2vw;
+  }
+
+  .details {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+    gap: 12vw;
+
+    min-height: 0;
+    margin: 0;
+    padding: 0 7.4vw 7.4vw;
+
+    font-size: 4.4vw;
+    line-height: 1.4;
+    letter-spacing: -0.15vw;
+  }
+
+  .topic {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .entry-info {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    gap: 12vw;
+  }
+
+  .awards {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .utility {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+  }
+
+  h2 {
+    margin-bottom: 2.4vw;
+    padding-bottom: 1.2vw;
+    border-bottom-width: 0.5vw;
+
+    font-size: 6vw;
+    letter-spacing: -0.2vw;
+  }
+
+  .topic h2 {
+    margin-bottom: 2vw;
+  }
+
+  .topic-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3.5vw;
+  }
+
+  .motto {
+    padding: 0.6vw 0.8vw;
+    font-size: 5.9vw;
+    letter-spacing: -0.35vw;
+  }
+
+  .theme-description {
+    font-size: 3.9vw;
+    line-height: 1.3;
+    letter-spacing: -0.2vw;
+  }
+
+  .submission-link {
+    font-size: 4vw;
+    letter-spacing: -0.25vw;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .awards h2 {
+    margin-bottom: 0.7vw;
+  }
+
+  table {
+    font-size: 4.2vw;
+    line-height: 1.5;
+  }
+
+  tbody tr {
+    border-bottom-width: 0.25vw;
+  }
+
+  th,
+  td {
+    padding: 1.35vw 0;
+  }
+
+  th {
+    letter-spacing: 1vw;
+  }
+
+  /* 하단도 명시적인 2열 × 2행 */
+  .utility {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    align-items: end;
+    gap: 11vw 4.4vw;
+    padding-top: 1vw;
+  }
+
+  .english {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    position: static;
+    justify-self: start;
+    height: 65vw;
+
+    font-size: 7vw;
+    line-height: 1.35;
+    letter-spacing: 1vw;
+  }
+
+  .qr {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+
+    position: static;
+    align-self: end;
+    justify-self: end;
+
+    gap: 3vw;
+    width: 33.5vw;
+  }
+
+  .qr-caption {
+    font-size: 4.8vw;
+    letter-spacing: -0.3vw;
+  }
+
+  .contacts {
+    grid-column: 1 / span 2;
+    grid-row: 2 / 3;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2.4vw;
+
+    font-size: 4.25vw;
+  }
+
+  .contacts p {
+    justify-content: space-between;
+    gap: 2vw;
+  }
+
+  .contacts a {
+    font-size: 4.3vw;
+    letter-spacing: -0.1vw;
+  }
+}
+
+@media (max-width: 368px) {
+  .poster {
+    grid-template-rows: auto;
+  }
+
+  .brand {
+    top: 14.5vw;
+    left: 9.2vw;
+  }
+
+  .brand-slogan {
+    font-size: 2.65vw;
+    letter-spacing: -0.18vw;
+  }
+
+  .stairs span:nth-child(1) {
+    top: 42vw;
+    left: 11.5vw;
+    width: 51vw;
+    height: 14vw;
+  }
+
+  .stairs span:nth-child(2) {
+    top: 29vw;
+    left: 31vw;
+    width: 40vw;
+    height: 27vw;
+  }
+
+  .stairs span:nth-child(3) {
+    top: 16vw;
+    left: 63vw;
+    width: 28.2vw;
+    height: 40vw;
+  }
+
+  .inf {
+    inset: auto;
+    top: 25vw;
+    right: 10.8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .inf span {
+    position: static;
+    transform: none;
+  }
+
+  .year {
+    font-size: 10.5vw;
+    letter-spacing: -0.55vw;
+  }
+
+  .city {
+    font-size: 11.3vw;
+    letter-spacing: -0.5vw;
+  }
+
+  .headline {
+    width: 82.4%;
+    margin-top: 54vw;
+    margin-left: 8.8%;
+    margin-bottom: 12vw;
+  }
+
+  .intro {
+    padding: 4.2vw 3.3vw 8vw;
+  }
+
+  .subtitle {
+    font-size: clamp(0.75rem, 12.4vw, 4rem);
+    line-height: 1.15;
+    letter-spacing: -0.65vw;
+  }
+
+  .title {
+    margin-top: 4.3vw;
+    font-size: clamp(0.75rem, 13vw, 4rem);
+    letter-spacing: -0.7vw;
+  }
+
+  .dates {
+    gap: 1.5vw;
+    margin-top: 6vw;
+    font-size: 23vw;
+    letter-spacing: -1.1vw;
+  }
+
+  .date-end {
+    align-self: flex-start;
+  }
+
+  .details {
+    gap: 13.5vw;
+    padding: 0 4.4vw 7vw;
+
+    font-size: 4.9vw;
+    letter-spacing: -0.18vw;
+  }
+
+  h2 {
+    padding-bottom: 1.1vw;
+    margin-bottom: 2.8vw;
+    font-size: 6.5vw;
+  }
+
+  .topic-content {
+    gap: 4vw;
+  }
+
+  .motto {
+    font-size: 5.45vw;
+  }
+
+  .theme-description {
+    font-size: 4.5vw;
+    line-height: 1.35;
+  }
+
+  .entry-info {
+    gap: 13.5vw;
+  }
+
+  .submission-link {
+    margin-top: 1vw;
+    font-size: 4.35vw;
+  }
+
+  table,
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  tbody tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    padding: 2vw 0;
+  }
+
+  th,
+  td {
+    display: block;
+    width: auto;
+    padding: 0.5vw 0;
+    font-size: 5vw;
+  }
+
+  th {
+    grid-column: 1 / span 2;
+    grid-row: 1 / 2;
+
+    letter-spacing: 0;
+    font-weight: 650;
+  }
+
+  td:nth-child(2) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+    width: auto;
+    text-align: left;
+  }
+
+  td:last-child {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+
+    text-align: right;
+  }
+
+  .utility {
+    grid-template-columns: 27vw minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 10vw 4vw;
+    padding-top: 10vw;
+  }
+
+  .english {
+    grid-column: 1 / span 2;
+    grid-row: 1 / 2;
+
+    height: auto;
+    writing-mode: horizontal-tb;
+
+    font-size: 7.8vw;
+    line-height: 1.4;
+    letter-spacing: 0.8vw;
+  }
+
+  .qr {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+    justify-self: start;
+    width: 27vw;
+    gap: 2vw;
+  }
+
+  .qr-caption {
+    font-size: 3.5vw;
+    letter-spacing: -0.2vw;
+  }
+
+  .contacts {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+
+    gap: 3vw;
+    font-size: 3.85vw;
+  }
+
+  .contacts p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+
+    white-space: normal;
+  }
+
+  .contact-label {
+    white-space: nowrap;
+  }
+
+  .contacts a {
+    font-size: 4.1vw;
+    white-space: nowrap;
+  }
+}
